@@ -48,10 +48,9 @@ ANTIGO
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -   # Exemplo para versão 16
 apt install -y nodejs
 ```
-NOVO
+Verificar no site a versão
 ```bash
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
-sudo apt-get install -y nodejs
+curl -fsSL https://deb.nodesource.com/setup_20.x | bash - apt install -y nodejs
 ```
 Verifique a instalação do Node.js:
 
@@ -104,7 +103,7 @@ No prompt do MariaDB, execute os seguintes comandos para criar um banco de dados
 
 ```sql
 CREATE DATABASE inmemoriambrasil;
-CREATE USER 'siteuser'@'localhost' IDENTIFIED BY 'senha_segura';
+CREATE USER 'siteuser'@'localhost' IDENTIFIED BY '1234';
 GRANT ALL PRIVILEGES ON inmemoriambrasil.* TO 'siteuser'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
@@ -136,7 +135,7 @@ npm install express mysql2 dotenv body-parser
 - **body-parser**: Para interpretar os dados recebidos nas requisições HTTP.
 
 #### 4.3. **Criar arquivo `.env` para configurações**
-Crie um arquivo `.env` no diretório raiz do projeto para armazenar as credenciais do banco de dados e outras variáveis de ambiente:
+Crie um arquivo `.env` no diretório **raiz do projeto** para armazenar as credenciais do banco de dados e outras variáveis de ambiente:
 
 ```bash
 touch .env
