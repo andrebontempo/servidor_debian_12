@@ -43,11 +43,16 @@ ufw status               # Verifica o status do firewall
 #### 2.1. **Instalar Node.js**
 Primeiro, instale o **Node.js** no servidor. Você pode instalar a versão mais recente do Node.js ou usar o **nvm** (Node Version Manager) para gerenciar várias versões.
 
+ANTIGO
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_16.x | bash -   # Exemplo para versão 16
 apt install -y nodejs
 ```
-
+NOVO
+```bash
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash -
+sudo apt-get install -y nodejs
+```
 Verifique a instalação do Node.js:
 
 ```bash
