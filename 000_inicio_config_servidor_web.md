@@ -151,8 +151,8 @@ Repita para **inmemoriambrasilteste.com.br**.
    CREATE DATABASE inmemoriambrasil;
    CREATE DATABASE inmemoriambrasilteste;
 
-   CREATE USER 'user_inmemoriam'@'localhost' IDENTIFIED BY 'senha_secreta';
-   CREATE USER 'user_inmemoriamteste'@'localhost' IDENTIFIED BY 'senha_secreta';
+   CREATE USER 'user_inmemoriam'@'localhost' IDENTIFIED BY '1234';
+   CREATE USER 'user_inmemoriamteste'@'localhost' IDENTIFIED BY '1234';
 
    GRANT ALL PRIVILEGES ON inmemoriambrasil.* TO 'user_inmemoriam'@'localhost';
    GRANT ALL PRIVILEGES ON inmemoriambrasilteste.* TO 'user_inmemoriamteste'@'localhost';
