@@ -167,6 +167,40 @@ Repita para **inmemoriambrasilteste.com.br**.
 1. Verifique se os sites estão funcionando no navegador acessando `http://inmemoriambrasil.com.br` e `http://inmemoriambrasilteste.com.br`.
 2. Teste a conexão com o MariaDB usando Node.js.
 
+```bash
+const mariadb = require('mariadb');
+
+// Configuração da conexão com o MariaDB
+const pool = mariadb.createPool({
+    host: 'localhost',  // ou o IP do servidor se for remoto
+    user: 'seu_usuario', // substitua pelo nome do seu usuário do MariaDB
+    password: 'sua_senha', // substitua pela senha do seu usuário
+    database: 'nome_do_banco', // substitua pelo nome do banco de dados
+    connectionLimit: 5
+});
+
+// Função para testar a conexão
+async function testConnection() {
+    let conn;
+    try {
+        conn = await pool.getConnection();
+        console.log("Conexão bem-sucedida ao MariaDB!");
+
+        // Teste de consulta simples
+        const rows = await conn.query("SELECT 1 as resultado");
+        console.log("Resultado da consulta:", rows[0].resultado);
+
+        // Adicione consultas adicionais se desejar
+    } catch (err) {
+        console.error("Erro ao conectar ao MariaDB:", err);
+    } finally {
+        if (conn) conn.end(); // Fecha a conexão
+    }
+}
+
+// Executa o teste de conexão
+testConnection();
+```
 ---
 
 ### **Próximos passos**
