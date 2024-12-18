@@ -5,7 +5,7 @@ Aqui está um checklist detalhado com os comandos necessários para configurar o
 ## 1. **Atualizar o sistema**
 Antes de começar, atualize o sistema para garantir que todos os pacotes estão atualizados.
 ```bash
-sudo apt update && sudo apt upgrade -y
+apt update && apt upgrade -y
 ```
 
 ---
@@ -13,9 +13,9 @@ sudo apt update && sudo apt upgrade -y
 ## 2. **Instalar o Apache**
 Apache será o servidor web que servirá os sites.
 ```bash
-sudo apt install apache2 -y
-sudo systemctl enable apache2
-sudo systemctl start apache2
+apt install apache2 -y
+systemctl enable apache2
+systemctl start apache2
 ```
 
 ---
@@ -26,7 +26,7 @@ Crie dois arquivos de configuração para os sites no diretório `/etc/apache2/s
 ### Para **inmemoriambrasil.com.br**
 1. Crie o arquivo de configuração:
    ```bash
-   sudo nano /etc/apache2/sites-available/inmemoriambrasil.com.br.conf
+   nano /etc/apache2/sites-available/inmemoriambrasil.com.br.conf
    ```
 2. Adicione o seguinte conteúdo:
    ```apache
@@ -48,7 +48,7 @@ Crie dois arquivos de configuração para os sites no diretório `/etc/apache2/s
 
 3. Repita o processo para **inmemoriambrasilteste.com.br**:
    ```bash
-   sudo nano /etc/apache2/sites-available/inmemoriambrasilteste.com.br.conf
+   nano /etc/apache2/sites-available/inmemoriambrasilteste.com.br.conf
    ```
    Conteúdo:
    ```apache
@@ -70,13 +70,13 @@ Crie dois arquivos de configuração para os sites no diretório `/etc/apache2/s
 
 4. Ative os Virtual Hosts:
    ```bash
-   sudo a2ensite inmemoriambrasil.com.br.conf
-   sudo a2ensite inmemoriambrasilteste.com.br.conf
+   a2ensite inmemoriambrasil.com.br.conf
+   a2ensite inmemoriambrasilteste.com.br.conf
    ```
 
 5. Reinicie o Apache:
    ```bash
-   sudo systemctl restart apache2
+   systemctl restart apache2
    ```
 
 ---
@@ -84,14 +84,14 @@ Crie dois arquivos de configuração para os sites no diretório `/etc/apache2/s
 ## 4. **Criar os diretórios dos sites**
 Crie os diretórios para os arquivos dos sites.
 ```bash
-sudo mkdir -p /var/www/inmemoriambrasil.com.br
-sudo mkdir -p /var/www/inmemoriambrasilteste.com.br
+mkdir -p /var/www/inmemoriambrasil.com.br
+mkdir -p /var/www/inmemoriambrasilteste.com.br
 ```
 
 Defina as permissões:
 ```bash
-sudo chown -R www-data:www-data /var/www/
-sudo chmod -R 755 /var/www/
+chown -R www-data:www-data /var/www/
+chmod -R 755 /var/www/
 ```
 
 ---
@@ -99,7 +99,7 @@ sudo chmod -R 755 /var/www/
 ## 5. **Instalar Node.js**
 Instale o Node.js e o gerenciador de pacotes npm.
 ```bash
-sudo apt install -y nodejs npm
+apt install -y nodejs npm
 ```
 
 Verifique a versão instalada:
@@ -132,18 +132,18 @@ Repita para **inmemoriambrasilteste.com.br**.
 ## 7. **Instalar e Configurar o MariaDB**
 1. Instale o MariaDB:
    ```bash
-   sudo apt install mariadb-server mariadb-client -y
+   apt install mariadb-server mariadb-client -y
    ```
 
 2. Inicie e habilite o serviço:
    ```bash
-   sudo systemctl start mariadb
-   sudo systemctl enable mariadb
+   systemctl start mariadb
+   systemctl enable mariadb
    ```
 
 3. Acesse o MariaDB:
    ```bash
-   sudo mysql
+   mysql
    ```
 
 4. Crie os bancos de dados e usuários para os sites:
