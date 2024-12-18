@@ -166,6 +166,7 @@ Repita para **inmemoriambrasilteste.com.br**.
 ## 8. **Testar o Apache, Node.js e MariaDB**
 1. Verifique se os sites estão funcionando no navegador acessando `http://inmemoriambrasil.com.br` e `http://inmemoriambrasilteste.com.br`.
 2. Teste a conexão com o MariaDB usando Node.js.
+3. Crie o arquivo teste_db.js dentro do diretório do site, como seguinte conteúdo:
 
 ```bash
 const mariadb = require('mariadb');
@@ -201,6 +202,16 @@ async function testConnection() {
 // Executa o teste de conexão
 testConnection();
 ```
+4 - Execute o script:
+```bash
+   node teste_db.js
+   ```
+4 - Caso dê erro, execute:
+npm list mariadb
+npm install mariadb
+Teste novamente
+node teste_db.js
+
 ---
 
 ### **Próximos passos**
